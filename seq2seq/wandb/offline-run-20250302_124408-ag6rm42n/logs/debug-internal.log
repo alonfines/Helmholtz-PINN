@@ -1,0 +1,14 @@
+{"time":"2025-03-02T12:44:08.504374574Z","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/content/drive/MyDrive/MSc/Year 1/Semester A/למידה עמוקה לבעיות פיזיקאליות 361.2.2330/Project/seq2seq/wandb/offline-run-20250302_124408-ag6rm42n/logs/debug-core.log"}
+{"time":"2025-03-02T12:44:08.614600319Z","level":"INFO","msg":"created new stream","id":"ag6rm42n"}
+{"time":"2025-03-02T12:44:08.615570498Z","level":"INFO","msg":"stream: started","id":"ag6rm42n"}
+{"time":"2025-03-02T12:44:08.615624542Z","level":"INFO","msg":"writer: Do: started","stream_id":"ag6rm42n"}
+{"time":"2025-03-02T12:44:08.615674998Z","level":"INFO","msg":"handler: started","stream_id":"ag6rm42n"}
+{"time":"2025-03-02T12:44:08.61571627Z","level":"INFO","msg":"sender: started","stream_id":"ag6rm42n"}
+{"time":"2025-03-02T12:44:08.638050872Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-02T12:44:13.950364389Z","level":"INFO","msg":"stream: closing","id":"ag6rm42n"}
+{"time":"2025-03-02T12:44:13.950511384Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-02T12:44:13.952231556Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-02T12:44:13.953132223Z","level":"INFO","msg":"handler: closed","stream_id":"ag6rm42n"}
+{"time":"2025-03-02T12:44:13.953230355Z","level":"INFO","msg":"writer: Close: closed","stream_id":"ag6rm42n"}
+{"time":"2025-03-02T12:44:13.953305966Z","level":"INFO","msg":"sender: closed","stream_id":"ag6rm42n"}
+{"time":"2025-03-02T12:44:13.956511048Z","level":"INFO","msg":"stream: closed","id":"ag6rm42n"}

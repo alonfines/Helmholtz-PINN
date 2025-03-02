@@ -1,0 +1,24 @@
+parameters:
+  k_squared: 1
+  dt: 0.25
+  n_points: 100000
+  seq_num: 'full'
+  error: 9e-3
+
+  batch_size: 1024
+  epochs: 1000
+  min_delta: 0.001
+  learning_rate: 1e-3
+  factor: 0.5
+  patience: 10
+  min_lr: 1e-5
+
+  L_x: 6
+  z: 3
+paths:
+  bc_dir: "boundary_conditions"
+  plots_dir: "plots"
+  grid_data: "boundary_conditions/grid_data.csv"
+  checkpoint_dir: "checkpoints"
+  
+  

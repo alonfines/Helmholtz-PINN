@@ -1,0 +1,30 @@
+{
+  "os":  "Linux-6.1.85+-x86_64-with-glibc2.35",
+  "python":  "CPython 3.11.11",
+  "startedAt":  "2025-02-21T08:43:02.181065Z",
+  "args":  [
+    "--seq_num",
+    "1"
+  ],
+  "program":  "/content/drive/MyDrive/MSc/Year 1/Semester A/למידה עמוקה לבעיות פיזיקאליות 361.2.2330/Project/seq2seq/train_seq2seq.py",
+  "codePath":  "train_seq2seq.py",
+  "root":  "/content/drive/MyDrive/MSc/Year 1/Semester A/למידה עמוקה לבעיות פיזיקאליות 361.2.2330/Project/seq2seq",
+  "host":  "bb2645cf458f",
+  "executable":  "/usr/bin/python3",
+  "codePathLocal":  "train_seq2seq.py",
+  "cpu_count":  1,
+  "cpu_count_logical":  2,
+  "disk":  {
+    "/":  {
+      "total":  "115658190848",
+      "used":  "35678994432"
+    }
+  },
+  "memory":  {
+    "total":  "13609431040"
+  },
+  "cpu":  {
+    "count":  1,
+    "countLogical":  2
+  }
+}
