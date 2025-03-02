@@ -1,8 +1,17 @@
 # **Physics-Informed Neural Network (PINN) for 2D Helmholtz Equation**
 
+![FEM Solver Solution](https://github.com/user-attachments/assets/b14e399c-1ede-4fa0-ab1e-3d826e2e8ba3)
+*Visualization of curriculum training progression*
+
+![PINN Curriculum Solution](https://github.com/user-attachments/assets/b9f9263f-cecf-4ce9-bc91-91d82972eb79)
+*Sequential training visualization*
+
+![PINN Seq2seq Solution](https://github.com/user-attachments/assets/6ff6f317-d512-4e9f-b05b-6183bfee6d4d)
+*Comparison between PINN predictions and FEM reference solution*
+
 ## **Overview**
 This project implements a **Physics-Informed Neural Network (PINN)** to solve the **2D Helmholtz equation** using curriculum and seq2seq methods. 
-These methos can be further detailed in [1].
+These methods can be further detailed in [1].
 We employ **Finite Element Method (FEM) simulations** for generating initial condition data and comparison results and utilize PINN to learn the wave field solution.
 
 ---
@@ -17,7 +26,7 @@ The **2D homogeneous Helmholtz equation** is given by:
 where:
 - \( U(x, z) \) represents the wave field.
 - \( k^2 \) is the wavenumber squared.
-- Here we focus on **Absorbing Boundary Conditions (ABC)** wich are applied to model realistic wave propagation scenarios.
+- Here we focus on **Absorbing Boundary Conditions (ABC)** which are applied to model realistic wave propagation scenarios.
 
 ---
 
@@ -51,7 +60,7 @@ These files must be placed in the **`boundary_conditions`** directory within eit
 ## **PINN Implementation**
 
 The PINN is implemented using **PyTorch Lightning**.
-There is a curriculum dir applying the curriculum method and seq2seq dir apllying to the seq2seq method.
+There is a curriculum dir applying the curriculum method and seq2seq dir applying the seq2seq method.
 
 ### **Key Components**
 1. **Configuration Files** (`config_curriculum.yaml`, `config_seq2seq.yaml`):
@@ -83,51 +92,17 @@ There is a curriculum dir applying the curriculum method and seq2seq dir apllyin
 
 ---
 
-## **Usage Guide**
-
-### **1. Preprocessing (MATLAB)**
-Run the MATLAB script to generate `grid_data.mat`.
-
-### **2. Convert Data (Python)**
-Run the Jupyter notebook to extract baundary conditions:
-```bash
-jupyter notebook Notebook.ipynb
-```
-
-### **3. Train the Model**
-To train the PINN in curriculum mode:
-```bash
-python train_curriculum.py --k_squared 1
-```
-or for sequential training:
-```bash
-python train_seq2seq.py --seq_num full
-```
-
-### **4. Test the Model**
-Evaluate the trained model:
-```bash
-python test_curriculum.py --k_squared 1
-```
-or:
-```bash
-python test_seq2seq.py --seq_num full
-```
-
----
-
 ## **Results & Visualization**
 - The trained model predictions are **compared with FEM solutions**.
+- Checkpoint files are saved in the **`checkpoints`** directory.
 - Visualization plots are saved in the **`plots`** directory.
 - **L2 error** between PINN and FEM solutions is computed.
 
 ---
 
-
----
-
 ## **References**
-[1] Krishnapriyan, A.S., Gholami, A., Zhe, S., Kirby, R.M., & Mahoney, M.W. (2021). Characterizing possible failure modes in physics-informed neural networks. 
+[1] Krishnapriyan, A.S., Gholami, A., Zhe, S., Kirby, R.M., & Mahoney, M.W. (2021). Characterizing possible failure modes in physics-informed neural networks.
+
 [2] Gasperini, D. (2025). *FEM Solver for 2D Helmholtz Equation*.
 
 ---
