@@ -1,0 +1,14 @@
+{"time":"2025-03-02T12:51:10.998341097Z","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/content/drive/MyDrive/MSc/Year 1/Semester A/למידה עמוקה לבעיות פיזיקאליות 361.2.2330/Project/curriculum/wandb/offline-run-20250302_125110-fpo3otmh/logs/debug-core.log"}
+{"time":"2025-03-02T12:51:11.108395464Z","level":"INFO","msg":"created new stream","id":"fpo3otmh"}
+{"time":"2025-03-02T12:51:11.109511831Z","level":"INFO","msg":"stream: started","id":"fpo3otmh"}
+{"time":"2025-03-02T12:51:11.109580056Z","level":"INFO","msg":"writer: Do: started","stream_id":"fpo3otmh"}
+{"time":"2025-03-02T12:51:11.109636122Z","level":"INFO","msg":"handler: started","stream_id":"fpo3otmh"}
+{"time":"2025-03-02T12:51:11.109671216Z","level":"INFO","msg":"sender: started","stream_id":"fpo3otmh"}
+{"time":"2025-03-02T12:51:11.131830377Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-02T12:51:11.90148408Z","level":"INFO","msg":"stream: closing","id":"fpo3otmh"}
+{"time":"2025-03-02T12:51:11.928937728Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-02T12:51:11.930801168Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-02T12:51:11.932395101Z","level":"INFO","msg":"handler: closed","stream_id":"fpo3otmh"}
+{"time":"2025-03-02T12:51:11.932546679Z","level":"INFO","msg":"writer: Close: closed","stream_id":"fpo3otmh"}
+{"time":"2025-03-02T12:51:11.932579465Z","level":"INFO","msg":"sender: closed","stream_id":"fpo3otmh"}
+{"time":"2025-03-02T12:51:11.935419075Z","level":"INFO","msg":"stream: closed","id":"fpo3otmh"}

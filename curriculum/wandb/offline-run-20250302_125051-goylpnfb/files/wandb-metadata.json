@@ -1,0 +1,30 @@
+{
+  "os":  "Linux-6.1.85+-x86_64-with-glibc2.35",
+  "python":  "CPython 3.11.11",
+  "startedAt":  "2025-03-02T12:50:52.207833Z",
+  "args":  [
+    "--k_squared",
+    "3"
+  ],
+  "program":  "/content/drive/MyDrive/MSc/Year 1/Semester A/למידה עמוקה לבעיות פיזיקאליות 361.2.2330/Project/curriculum/train_curriculum.py",
+  "codePath":  "train_curriculum.py",
+  "root":  "/content/drive/MyDrive/MSc/Year 1/Semester A/למידה עמוקה לבעיות פיזיקאליות 361.2.2330/Project/curriculum",
+  "host":  "288fcda9c1fe",
+  "executable":  "/usr/bin/python3",
+  "codePathLocal":  "train_curriculum.py",
+  "cpu_count":  1,
+  "cpu_count_logical":  2,
+  "disk":  {
+    "/":  {
+      "total":  "115658190848",
+      "used":  "38203858944"
+    }
+  },
+  "memory":  {
+    "total":  "13609431040"
+  },
+  "cpu":  {
+    "count":  1,
+    "countLogical":  2
+  }
+}
