@@ -93,11 +93,65 @@ There is a curriculum dir applying the curriculum method and seq2seq dir applyin
 
 ---
 
+
+## **Usage Guide**
+
+### **1. Preprocessing (MATLAB)**
+Run the MATLAB script to generate grid_data.mat.
+
+### **2. Convert Data (Python)**
+Run the Jupyter notebook to extract baundary conditions:
+```bash
+jupyter notebook Notebook.ipynb
+```
+
+### **3. Train the Model**
+To train the PINN in curriculum mode for k^2=1:
+```bash
+python train_curriculum.py --k_squared 1
+```
+or for seq2seq training for the first sequence:
+```bash
+python bc_creator.py --seq_num 1 
+python train_seq2seq.py --seq_num 1
+```
+
+### **4. Test the Model**
+Evaluate the trained model:
+```bash
+python test_curriculum.py --k_squared 1
+```
+or:
+```bash
+python test_seq2seq.py --seq_num 1
+```
+
+### **Running the entire training**
+For Curriculum Training running from k^2=1 to K:
+```bash
+for k in {1..K}; do \
+    python "/gpfs0/tamyr/users/alonfi/Adrian project/curriculum/train_curriculum.py" --k_squared $k && \
+    python "/gpfs0/tamyr/users/alonfi/Adrian project/curriculum/test_curriculum.py" --k_squared $k; \
+    done'
+```
+For Seq2seq training from sequence 1 to S:
+```bash
+for s in {1..S}; do \
+    python bc_creator.py --seq_num $s && \
+    python train_seq2seq.py --seq_num $s && \
+    python test_seq2seq.py --seq_num $s; \
+    done'
+```
+---
+### 
 ## **Results & Visualization**
 - The trained model predictions are **compared with FEM solutions**.
-- Checkpoint files are saved in the **`checkpoints`** directory.
-- Visualization plots are saved in the **`plots`** directory.
+- Checkpoint files are saved in the **checkpoints**
+- Visualization plots are saved in the **plots** directory.
 - **L2 error** between PINN and FEM solutions is computed.
+
+---
+
 
 ---
 
