@@ -20,13 +20,13 @@ We employ **Finite Element Method (FEM) simulations** for generating initial con
 ## **Problem Definition**
 The **2D homogeneous Helmholtz equation** is given by:
 
-\[
+$$
 \Delta U + k^2 U = 0
-\]
+$$
 
 where:
-- \( U(x, z) \) represents the wave field.
-- \( k^2 \) is the wavenumber squared.
+- $$\ U(x, z) \$$ represents the wave field.
+- $$\ k^2 \$$ is the wavenumber squared.
 - Here we focus on **Absorbing Boundary Conditions (ABC)** which are applied to model realistic wave propagation scenarios.
 
 ---
