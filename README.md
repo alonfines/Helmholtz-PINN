@@ -1,13 +1,14 @@
 # **Physics-Informed Neural Network (PINN) for 2D Helmholtz Equation**
 
-![FEM Solver Solution](https://github.com/user-attachments/assets/b14e399c-1ede-4fa0-ab1e-3d826e2e8ba3)
-*Visualization of curriculum training progression*
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b14e399c-1ede-4fa0-ab1e-3d826e2e8ba3" width="36%" alt="Curriculum Training Visualization">
+  <img src="https://github.com/user-attachments/assets/b9f9263f-cecf-4ce9-bc91-91d82972eb79" width="30%" alt="Seq2Seq Training Visualization">
+  <img src="https://github.com/user-attachments/assets/6ff6f317-d512-4e9f-b05b-6183bfee6d4d" width="30%" alt="Comparison of PINN and FEM Solutions">
+</p>
 
-![PINN Curriculum Solution](https://github.com/user-attachments/assets/b9f9263f-cecf-4ce9-bc91-91d82972eb79)
-*Sequential training visualization*
-
-![PINN Seq2seq Solution](https://github.com/user-attachments/assets/6ff6f317-d512-4e9f-b05b-6183bfee6d4d)
-*Comparison between PINN predictions and FEM reference solution*
+<p align="center">
+  <i> FEM Solver | PINN Curriculum | PINN Seq2seq</i>
+</p>
 
 ## **Overview**
 This project implements a **Physics-Informed Neural Network (PINN)** to solve the **2D Helmholtz equation** using curriculum and seq2seq methods. 
