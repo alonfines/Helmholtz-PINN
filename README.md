@@ -1,41 +1,133 @@
-# Helmholtz-PINN
-readme.md‏
-Physics-Informed Neural Network (PINN) for 2D Helmholtz Equation:
+# **Physics-Informed Neural Network (PINN) for 2D Helmholtz Equation**
 
-This project focuses on solving the 2D Helmholtz equation using PINN 
+## **Overview**
+This project implements a **Physics-Informed Neural Network (PINN)** to solve the **2D Helmholtz equation** using curriculum and seq2seq methods. 
+These methos can be further detailed in [1].
+We employ **Finite Element Method (FEM) simulations** for generating initial condition data and comparison results and utilize PINN to learn the wave field solution.
 
-1. Problem Definition
+---
 
-We solve the 2D homogeneous Helmholtz equation:
+## **Problem Definition**
+The **2D homogeneous Helmholtz equation** is given by:
 
-\Deltas U + k^2 U = 0
+\[
+\Delta U + k^2 U = 0
+\]
 
-on a defined computational domain, using a FEM-based approach. The Dirichlet boundary conditions and absorbing boundary conditions (ABC) are applied to model wave propagation scenarios.
+where:
+- \( U(x, z) \) represents the wave field.
+- \( k^2 \) is the wavenumber squared.
+- Here we focus on **Absorbing Boundary Conditions (ABC)** wich are applied to model realistic wave propagation scenarios.
 
-2. Workflow
+---
 
-Step 1: Geometry Setup and FEM Solver (MATLAB)
+## **Workflow**
 
-The geometry of the problem is defined using MATLAB FEM scripts.
+### **Step 1: Geometry Setup and FEM Solver (MATLAB)**
+- The problem domain and wave propagation setup are defined using MATLAB-based **Finite Element Method (FEM)** scripts.
+- The primary solver is based on:
+  
+  **David Gasperini (2025),** *"FEM Solver for 2D Helmholtz Equation"*, available at:  
+  [MATLAB Repository](https://www.mathworks.com/matlabcentral/fileexchange/91695-fem-solver-for-2d-helmholtz-equation)
 
-The main solver is based on the following MATLAB repository:
+- **Modifications:**
+  - The script `Diffraction2.m` was implemented to model wave propagation through a **slit**.
+  - The computed wave field data (real and imaginary components) is stored in `grid_data.mat`.
 
-David Gasperini (2025), "FEM solver for 2D Helmholtz equation", https://www.mathworks.com/matlabcentral/fileexchange/91695-fem-solver-for-2d-helmholtz-equation.
+---
 
-Modifications:
+### **Step 2: Data Processing (Python)**
+- The **MATLAB output** (`grid_data.mat`) is processed in Python using `Notebook.ipynb`.
+- The dataset is converted into CSV format for compatibility with the PINN model.
 
-The script Diffraction2.m was created to model wave propagation through a slit.
+#### **Extracted Features:**
+- Either **real** or **imaginary** values of \( U(x, z) \) are extracted and saved as a CSV file.
+- Boundary conditions at \( z=0 \) are stored separately in **`bc1.csv`**.
 
-The output is stored in grid_data.mat, which contains both real and imaginary parts of the wave field.
+These files must be placed in the **`boundary_conditions`** directory within either the `curriculum` or `seq2seq` folders.
 
-Step 2: Data Processing (Python)
+---
 
-The Notebook.ipynb processes grid_data.mat, converting it into CSV format.
+## **PINN Implementation**
 
-It extracts:
+The PINN is implemented using **PyTorch Lightning**.
+There is a curriculum dir applying the curriculum method and seq2seq dir apllying to the seq2seq method.
 
-Either real or imaginary values of u from the solution into a csv file.
+### **Key Components**
+1. **Configuration Files** (`config_curriculum.yaml`, `config_seq2seq.yaml`):
+   - Define **hyperparameters** such as:
+     - Learning rate
+     - Batch size
+     - Number of epochs
+     - Computational domain parameters (e.g., \( L_x, z \))
+     - Training error thresholds
 
-Boundary conditions at z=0, stored in bc_1.csv.
+2. **Dataset Handling** (`dataset_curriculum.py`, `dataset_seq2seq.py`):
+   - Loads training points from a specified computational domain.
 
-Both files should be saved in the baundary_conditions dir in the curriculum or seq2seq dir. 
+3. **Model Definition** (`model_curriculum.py`, `model_seq2seq.py`):
+   - Implements a **fully connected neural network (FCNN)** with **Tanh** activation functions.
+   - Computes **Helmholtz residual loss** and **boundary condition loss**.
+
+4. **Training Scripts** (`train_curriculum.py`, `train_seq2seq.py`):
+   - Loads the dataset and trains the PINN using **Adam optimizer** with adaptive weight balancing.
+   - Uses **WandB (Weights & Biases)** for logging.
+
+5. **Testing & Evaluation** (`test_curriculum.py`, `test_seq2seq.py`):
+   - Loads trained models for evaluation.
+   - Compares **PINN solutions** with **FEM reference solutions**.
+   - Computes **L2 error** and generates visualization plots.
+
+6. **Boundary Condition Generation** (`bc_creator.py`):
+   - Generates **boundary conditions** dynamically for sequential training.
+
+---
+
+## **Usage Guide**
+
+### **1. Preprocessing (MATLAB)**
+Run the MATLAB script to generate `grid_data.mat`.
+
+### **2. Convert Data (Python)**
+Run the Jupyter notebook to extract baundary conditions:
+```bash
+jupyter notebook Notebook.ipynb
+```
+
+### **3. Train the Model**
+To train the PINN in curriculum mode:
+```bash
+python train_curriculum.py --k_squared 1
+```
+or for sequential training:
+```bash
+python train_seq2seq.py --seq_num full
+```
+
+### **4. Test the Model**
+Evaluate the trained model:
+```bash
+python test_curriculum.py --k_squared 1
+```
+or:
+```bash
+python test_seq2seq.py --seq_num full
+```
+
+---
+
+## **Results & Visualization**
+- The trained model predictions are **compared with FEM solutions**.
+- Visualization plots are saved in the **`plots`** directory.
+- **L2 error** between PINN and FEM solutions is computed.
+
+---
+
+
+---
+
+## **References**
+[1] Krishnapriyan, A.S., Gholami, A., Zhe, S., Kirby, R.M., & Mahoney, M.W. (2021). Characterizing possible failure modes in physics-informed neural networks. 
+[2] Gasperini, D. (2025). *FEM Solver for 2D Helmholtz Equation*.
+
+---
